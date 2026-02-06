@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Code7G — Independent App Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        :root {
+            --grad-start: #1a4fff;
+            --grad-end: #7a2cff;
+            --bg-dark: #0b0f1a;
+            --text-main: #e8ebf1;
+            --text-muted: #a6accd;
+            --accent: #8ab4ff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: radial-gradient(
+                circle at top,
+                rgba(122,44,255,0.15),
+                rgba(26,79,255,0.05) 40%,
+                var(--bg-dark) 70%
+            );
+            color: var(--text-main);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 64px 24px 96px;
+        }
+
+        header {
+            margin-bottom: 80px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+            color: white;
+            border-radius: 999px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            line-height: 1.05;
+            margin: 0 0 24px;
+            background: linear-gradient(135deg, #ffffff, #c9d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 720px;
+        }
+
+        section {
+            margin-top: 96px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 820px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 32px;
+        }
+
+        .card {
+            padding: 28px;
+            border-radius: 18px;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.05),
+                    rgba(255,255,255,0.01)
+                );
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(6px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            margin: 0;
+        }
+
+        footer {
+            margin-top: 120px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="badge">Independent Developer</div>
+            <h1>Code7G</h1>
+            <p class="subtitle">
+                Independent software developer building
+                <strong>powerful, reliable, and user-focused applications</strong> —
+                starting with Android, expanding beyond.
+            </p>
+        </header>
+
+        <section>
+            <h2>About</h2>
+            <p>
+                Code7G is an independent software developer focused on creating
+                high-quality applications with a strong emphasis on performance,
+                reliability, and long-term value for users.
+            </p>
+            <p>
+                The goal is simple but ambitious: to build software that feels
+                intentional — tools that respect the user’s time, work when they
+                matter most, and continue to improve as they grow.
+            </p>
+        </section>
+
+        <section>
+            <h2>Focus Areas</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Android & Cross-Platform Apps</h3>
+                    <p>
+                        Design and development of modern Android applications,
+                        with future expansion toward additional platforms.
+                        <br /><br />
+                        Emphasis on clean architecture, performance, and reliability
+                        across real-world devices.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>AI & Intelligent Systems</h3>
+                    <p>
+                        Private research and development in applied AI and intelligent
+                        software systems.
+                        <br /><br />
+                        Focused on practical, user-benefiting applications rather than
+                        experimentation for its own sake.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Security & Full-Stack Engineering</h3>
+                    <p>
+                        Experience across backend, frontend, and cybersecurity-oriented
+                        projects.
+                        <br /><br />
+                        Building systems that are not only functional, but resilient,
+                        scalable, and secure by design.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Published Apps</h2>
+            <p>
+                <strong>Motivational Alarm</strong><br />
+                A productivity-focused Android app designed to help users start
+                their day with purpose.
+            </p>
+            <p>
+                Motivational Alarm allows users to wake up to motivating video
+                alarms that play when the alarm triggers — helping build energy,
+                focus, and consistency from the moment the day begins.
+                <br /><br />
+                Designed to be reliable, simple, and effective, the app focuses on
+                doing one thing well: helping users wake up on time and ready to
+                take on the day.
+            </p>
+            <p>
+                More applications and tools are currently in development.
+            </p>
+        </section>
+
+        <section>
+            <h2>Contact & Legal</h2>
+            <p>
+                This website is used for app verification, legal disclosures,
+                and platform compliance.
+            </p>
+            <p>
+                For support or inquiries:<br />
+                coder.7g@gmail.com
+            </p>
+        </section>
+
+        <footer>
+            © <span id="year"></span> Code7G. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+</body>
+</html>
