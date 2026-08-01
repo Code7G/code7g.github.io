@@ -4,213 +4,544 @@
     <meta charset="UTF-8" />
     <title>Code7G — Independent App Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Code7G — independent software developer building powerful, reliable, and user-focused Android applications." />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#080b12" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)" />
+
+    <!-- Runs before paint: applies the saved theme and marks JS as available,
+         so nothing flashes the wrong colour and no-JS visitors still see everything. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add("js");
+            try {
+                var saved = localStorage.getItem("c7g-theme");
+                if (saved === "light" || saved === "dark") {
+                    root.setAttribute("data-theme", saved);
+                }
+            } catch (e) { /* storage blocked — fall back to system preference */ }
+        })();
+    </script>
 
     <style>
-    /* =====================
-       BASE VARIABLES
-       ===================== */
+    /* =====================================================================
+       TOKENS
+       Light is the base layer; dark is applied by system preference and by
+       the manual toggle. Both blocks are written out in full rather than
+       using light-dark(), so older Android WebViews render correctly.
+       ===================================================================== */
     :root {
+        color-scheme: light;
+
         --grad-start: #1a4fff;
-        --grad-end: #7a2cff;
+        --grad-end:   #7a2cff;
+
+        --bg-main:    #f5f6fa;
+        --bg-card:    #ffffff;
+        --bg-elev:    #ffffff;
+
+        --text-main:   #14181f;
+        --text-muted:  #4b5565;
+        --text-strong: #05070c;
+
+        --accent:      #1636d9;
+        --accent-soft: rgba(22, 54, 217, 0.10);
+
+        --border:        rgba(9, 14, 30, 0.10);
+        --border-strong: rgba(9, 14, 30, 0.16);
+
+        --glow-1: rgba(122, 44, 255, 0.16);
+        --glow-2: rgba(26, 79, 255, 0.12);
+
+        --shadow-card:  0 1px 2px rgba(9,14,30,0.04), 0 8px 24px rgba(9,14,30,0.06);
+        --shadow-hover: 0 2px 4px rgba(9,14,30,0.05), 0 18px 40px rgba(9,14,30,0.10);
 
         --radius-lg: 18px;
+        --radius-sm: 10px;
+
+        --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Roboto, "Helvetica Neue", Arial, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, "SF Mono", "JetBrains Mono",
+                     Menlo, Consolas, "Roboto Mono", monospace;
+
+        --measure: 68ch;
+        --gutter: clamp(20px, 5vw, 32px);
+        --section-gap: clamp(64px, 10vw, 104px);
     }
 
-    /* =====================
-       DARK MODE (default)
-       ===================== */
-    :root {
-        --bg-main: #0b0f1a;
-        --bg-card: rgba(255,255,255,0.05);
+    /* --- Dark: system preference (unless the visitor forced light) --- */
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+            color-scheme: dark;
 
-        --text-main: #e8ebf1;
-        --text-muted: #a6accd;
-        --text-strong: #ffffff;
+            --bg-main:  #080b12;
+            --bg-card:  rgba(255, 255, 255, 0.045);
+            --bg-elev:  #0f141f;
 
-        --accent: #8ab4ff;
+            --text-main:   #e6e9f2;
+            --text-muted:  #a2abc2;
+            --text-strong: #ffffff;
 
-        --glow-1: rgba(122,44,255,0.18);
-        --glow-2: rgba(26,79,255,0.08);
-    }
+            --accent:      #8ab4ff;
+            --accent-soft: rgba(138, 180, 255, 0.12);
 
-    /* =====================
-       LIGHT MODE OVERRIDES
-       ===================== */
-    @media (prefers-color-scheme: light) {
-        :root {
-            --bg-main: #f6f7fb;
-            --bg-card: #ffffff;
+            --border:        rgba(255, 255, 255, 0.09);
+            --border-strong: rgba(255, 255, 255, 0.16);
 
-            --text-main: #1b1f2a;
-            --text-muted: #4b5565;
-            --text-strong: #000000;
+            --glow-1: rgba(122, 44, 255, 0.30);
+            --glow-2: rgba(26, 79, 255, 0.20);
 
-            --accent: #1a4fff;
-
-            /* Softer, non-competing glow */
-            --glow-1: rgba(122,44,255,0.08);
-            --glow-2: rgba(26,79,255,0.04);
+            --shadow-card:  0 1px 2px rgba(0,0,0,0.4);
+            --shadow-hover: 0 1px 2px rgba(0,0,0,0.4), 0 20px 44px rgba(0,0,0,0.45);
         }
     }
 
-    * {
+    /* --- Dark: forced by the toggle --- */
+    :root[data-theme="dark"] {
+        color-scheme: dark;
+
+        --bg-main:  #080b12;
+        --bg-card:  rgba(255, 255, 255, 0.045);
+        --bg-elev:  #0f141f;
+
+        --text-main:   #e6e9f2;
+        --text-muted:  #a2abc2;
+        --text-strong: #ffffff;
+
+        --accent:      #8ab4ff;
+        --accent-soft: rgba(138, 180, 255, 0.12);
+
+        --border:        rgba(255, 255, 255, 0.09);
+        --border-strong: rgba(255, 255, 255, 0.16);
+
+        --glow-1: rgba(122, 44, 255, 0.30);
+        --glow-2: rgba(26, 79, 255, 0.20);
+
+        --shadow-card:  0 1px 2px rgba(0,0,0,0.4);
+        --shadow-hover: 0 1px 2px rgba(0,0,0,0.4), 0 20px 44px rgba(0,0,0,0.45);
+    }
+
+    /* =====================================================================
+       BASE
+       ===================================================================== */
+    *,
+    *::before,
+    *::after {
         box-sizing: border-box;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
     }
 
     body {
         margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        min-height: 100vh;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.6;
 
-        background: radial-gradient(
-            circle at top,
-            var(--glow-1),
-            var(--glow-2) 40%,
-            var(--bg-main) 70%
-        );
-
+        /* The opaque colour is the floor. The glow now sits on top of it
+           instead of compositing against a white canvas. */
+        background-color: var(--bg-main);
         color: var(--text-main);
+
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+    }
+
+    /* Ambient glow, painted behind everything and pinned to the viewport
+       so it never stretches with page height. */
+    .atmosphere {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .atmosphere::before,
+    .atmosphere::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+    }
+
+    .atmosphere::before {
+        top: -22vmax;
+        left: 50%;
+        width: 68vmax;
+        height: 46vmax;
+        margin-left: -34vmax;
+        background: var(--glow-1);
+        animation: drift-a 26s ease-in-out infinite alternate;
+    }
+
+    .atmosphere::after {
+        top: -8vmax;
+        right: -14vmax;
+        width: 44vmax;
+        height: 40vmax;
+        background: var(--glow-2);
+        animation: drift-b 32s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift-a {
+        from { transform: translate3d(-4%, 0, 0) scale(1); }
+        to   { transform: translate3d(4%, 3%, 0) scale(1.08); }
+    }
+
+    @keyframes drift-b {
+        from { transform: translate3d(0, 0, 0) scale(1.05); }
+        to   { transform: translate3d(-6%, 5%, 0) scale(0.95); }
     }
 
     .container {
-        max-width: 1100px;
+        max-width: 1080px;
         margin: 0 auto;
-        padding: 64px 24px 96px;
+        padding: clamp(28px, 6vw, 56px) var(--gutter) 96px;
     }
 
+    /* =====================================================================
+       THEME TOGGLE
+       ===================================================================== */
+    .toolbar {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: clamp(32px, 7vw, 56px);
+    }
+
+    .theme-toggle {
+        display: inline-grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--bg-card);
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+        color: var(--text-strong);
+        border-color: var(--border-strong);
+        transform: translateY(-1px);
+    }
+
+    .theme-toggle svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Show the icon for the theme you'd switch *to*. */
+    .theme-toggle .icon-sun { display: none; }
+
+    :root[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .theme-toggle .icon-sun  { display: block; }
+        :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+    }
+
+    /* Hidden entirely without JS, since it would do nothing. */
+    html:not(.js) .toolbar { display: none; }
+
+    /* =====================================================================
+       HEADER
+       ===================================================================== */
     header {
-        margin-bottom: 80px;
+        margin-bottom: var(--section-gap);
     }
 
     .badge {
         display: inline-block;
-        padding: 6px 14px;
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
+        padding: 7px 15px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
-        color: white;
+        color: #ffffff;
         border-radius: 999px;
-        margin-bottom: 20px;
+        margin-bottom: 26px;
     }
 
     h1 {
-        font-size: clamp(2.6rem, 5vw, 4rem);
-        line-height: 1.05;
-        margin: 0 0 24px;
-
-        background: linear-gradient(135deg, var(--text-strong), var(--accent));
+        font-size: clamp(3rem, 9vw, 5.25rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.045em;
+        margin: 0 0 26px;
+        color: var(--text-strong); /* fallback if background-clip is unsupported */
+        background: linear-gradient(135deg, var(--text-strong) 15%, var(--accent) 115%);
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
-    /* Dark mode overrides */
-    @media (prefers-color-scheme: dark) {
-        h1 {
-            background: none;
-            -webkit-background-clip: initial;
-            -webkit-text-fill-color: var(--text-strong);
-            color: var(--text-strong);
-
-            /* soft glow instead of hard rectangle */
-            text-shadow:
-                0 0 6px rgba(138,180,255,0.15),
-                0 0 12px rgba(138,180,255,0.1);
-        }
-    }
-
     .subtitle {
-        font-size: 1.25rem;
+        font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+        line-height: 1.65;
         color: var(--text-muted);
-        max-width: 720px;
+        max-width: 46ch;
+        text-wrap: pretty;
+        margin: 0;
     }
 
+    .subtitle strong {
+        color: var(--text-main);
+        font-weight: 600;
+    }
+
+    /* =====================================================================
+       SECTIONS
+       ===================================================================== */
     section {
-        margin-top: 96px;
+        margin-top: var(--section-gap);
     }
 
     h2 {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
+        position: relative;
+        font-size: clamp(1.45rem, 3vw, 1.75rem);
+        font-weight: 650;
+        letter-spacing: -0.02em;
+        margin: 0 0 22px;
+        padding-left: 18px;
         color: var(--text-strong);
+    }
+
+    /* Small accent rule instead of decorative numbering — these sections
+       aren't a sequence, so numbering them would imply order that isn't there. */
+    h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.18em;
+        bottom: 0.18em;
+        width: 3px;
+        border-radius: 2px;
+        background: linear-gradient(180deg, var(--grad-start), var(--grad-end));
     }
 
     p {
-        line-height: 1.7;
+        line-height: 1.72;
         color: var(--text-muted);
-        max-width: 820px;
+        max-width: var(--measure);
+        text-wrap: pretty;
     }
 
+    section > p + p {
+        margin-top: 1.1em;
+    }
+
+    strong {
+        color: var(--text-main);
+        font-weight: 600;
+    }
+
+    /* =====================================================================
+       CARDS
+       ===================================================================== */
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 28px;
-        margin-top: 32px;
+        grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+        gap: 22px;
+        margin-top: 34px;
     }
 
     .card {
-        padding: 28px;
+        position: relative;
+        padding: 30px 28px;
         border-radius: var(--radius-lg);
         background: var(--bg-card);
-        border: 1px solid rgba(0,0,0,0.06);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+                    border-color 0.25s ease;
+    }
+
+    /* Hairline that lights up on hover — the only ornament on the card. */
+    .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--border-strong);
+    }
+
+    .card:hover::before {
+        opacity: 1;
     }
 
     @media (prefers-color-scheme: dark) {
-        .card {
-            border: 1px solid rgba(255,255,255,0.08);
-            backdrop-filter: blur(6px);
+        :root:not([data-theme="light"]) .card {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
+    }
+
+    :root[data-theme="dark"] .card {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
     .card h3 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-size: 1.2rem;
+        margin: 0 0 12px;
+        font-size: 1.08rem;
+        font-weight: 640;
+        letter-spacing: -0.01em;
+        line-height: 1.35;
         color: var(--text-strong);
     }
 
+    .card p {
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    /* =====================================================================
+       APPS & CONTACT
+       ===================================================================== */
+    .app-name {
+        display: block;
+        font-size: 1.15rem;
+        letter-spacing: -0.01em;
+        margin-bottom: 4px;
+        color: var(--text-strong);
+    }
+
+    .contact-block {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 20px 24px;
+        margin-top: 4px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        background: var(--bg-card);
+    }
+
+    .contact-block a {
+        font-family: var(--font-mono);
+        font-size: 0.98rem;
+        word-break: break-all;
+    }
+
+    /* =====================================================================
+       FOOTER
+       ===================================================================== */
     footer {
-        margin-top: 120px;
-        padding-top: 40px;
-        border-top: 1px solid rgba(0,0,0,0.08);
-        font-size: 0.9rem;
+        margin-top: calc(var(--section-gap) + 24px);
+        padding-top: 34px;
+        border-top: 1px solid var(--border);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        letter-spacing: 0.01em;
         color: var(--text-muted);
     }
 
-    @media (prefers-color-scheme: dark) {
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-    }
-
+    /* =====================================================================
+       LINKS & FOCUS
+       ===================================================================== */
     a {
         color: var(--accent);
         text-decoration: none;
+        border-radius: 3px;
     }
 
     a:hover {
         text-decoration: underline;
+        text-underline-offset: 3px;
     }
 
-    @media (prefers-color-scheme: dark) {
-        h1 {
-            background: none;
-            -webkit-background-clip: initial;
-            -webkit-text-fill-color: var(--text-strong);
-            color: var(--text-strong);
-        }
+    :where(a, button):focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
     }
-    @media (prefers-color-scheme: dark) {
-        h1 {
-            text-shadow: 0 2px 12px rgba(138,180,255,0.25);
+
+    ::selection {
+        background: var(--accent-soft);
+        color: var(--text-strong);
+    }
+
+    /* =====================================================================
+       ENTRANCE
+       ===================================================================== */
+    .js .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+
+        *,
+        *::before,
+        *::after {
+            animation: none !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        .js .reveal {
+            opacity: 1;
+            transform: none;
         }
     }
     </style>
 </head>
 
 <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
     <div class="container">
-        <header>
+        <div class="toolbar">
+            <button
+                type="button"
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Switch colour theme"
+                title="Switch colour theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.2" />
+                    <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+            </button>
+        </div>
+
+        <header class="reveal">
             <div class="badge">Independent Developer</div>
             <h1>Code7G</h1>
             <p class="subtitle">
@@ -220,90 +551,96 @@
             </p>
         </header>
 
-        <section>
-            <h2>About</h2>
-            <p>
-                Code7G is an independent software developer focused on creating
-                high-quality applications with a strong emphasis on performance,
-                reliability, and long-term value for users.
-            </p>
-            <p>
-                The goal is simple but ambitious: to build software that feels
-                intentional — tools that respect the user’s time, work when they
-                matter most, and continue to improve as they grow.
-            </p>
-        </section>
+        <main>
+            <section class="reveal" aria-labelledby="about-heading">
+                <h2 id="about-heading">About</h2>
+                <p>
+                    Code7G is an independent software developer focused on creating
+                    high-quality applications with a strong emphasis on performance,
+                    reliability, and long-term value for users.
+                </p>
+                <p>
+                    The goal is simple but ambitious: to build software that feels
+                    intentional — tools that respect the user’s time, work when they
+                    matter most, and continue to improve as they grow.
+                </p>
+            </section>
 
-        <section>
-            <h2>Focus Areas</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Android & Cross-Platform Apps</h3>
-                    <p>
-                        Design and development of modern Android applications,
-                        with future expansion toward additional platforms.
-                        <br /><br />
-                        Emphasis on clean architecture, performance, and reliability
-                        across real-world devices.
-                    </p>
+            <section class="reveal" aria-labelledby="focus-heading">
+                <h2 id="focus-heading">Focus Areas</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Android &amp; Cross-Platform Apps</h3>
+                        <p>
+                            Design and development of modern Android applications,
+                            with future expansion toward additional platforms.
+                        </p>
+                        <p style="margin-top: 1em;">
+                            Emphasis on clean architecture, performance, and reliability
+                            across real-world devices.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>AI &amp; Intelligent Systems</h3>
+                        <p>
+                            Private research and development in applied AI and intelligent
+                            software systems.
+                        </p>
+                        <p style="margin-top: 1em;">
+                            Focused on practical, user-benefiting applications rather than
+                            experimentation for its own sake.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Security &amp; Full-Stack Engineering</h3>
+                        <p>
+                            Experience across backend, frontend, and cybersecurity-oriented
+                            projects.
+                        </p>
+                        <p style="margin-top: 1em;">
+                            Building systems that are not only functional, but resilient,
+                            scalable, and secure by design.
+                        </p>
+                    </div>
                 </div>
+            </section>
 
-                <div class="card">
-                    <h3>AI & Intelligent Systems</h3>
-                    <p>
-                        Private research and development in applied AI and intelligent
-                        software systems.
-                        <br /><br />
-                        Focused on practical, user-benefiting applications rather than
-                        experimentation for its own sake.
-                    </p>
+            <section class="reveal" aria-labelledby="apps-heading">
+                <h2 id="apps-heading">Published Apps</h2>
+                <p>
+                    <strong class="app-name">Motivational Alarm</strong>
+                    A productivity-focused Android app designed to help users start
+                    their day with purpose.
+                </p>
+                <p>
+                    Motivational Alarm allows users to wake up to motivating video
+                    alarms that play when the alarm triggers — helping build energy,
+                    focus, and consistency from the moment the day begins.
+                </p>
+                <p>
+                    Designed to be reliable, simple, and effective, the app focuses on
+                    doing one thing well: helping users wake up on time and ready to
+                    take on the day.
+                </p>
+                <p>
+                    More applications and tools are currently in development.
+                </p>
+            </section>
+
+            <section class="reveal" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact &amp; Legal</h2>
+                <p>
+                    This website is used for app verification, legal disclosures,
+                    and platform compliance.
+                </p>
+                <p>For support or inquiries:</p>
+                <div class="contact-block">
+                    <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a>
                 </div>
-
-                <div class="card">
-                    <h3>Security & Full-Stack Engineering</h3>
-                    <p>
-                        Experience across backend, frontend, and cybersecurity-oriented
-                        projects.
-                        <br /><br />
-                        Building systems that are not only functional, but resilient,
-                        scalable, and secure by design.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Published Apps</h2>
-            <p>
-                <strong>Motivational Alarm</strong><br />
-                A productivity-focused Android app designed to help users start
-                their day with purpose.
-            </p>
-            <p>
-                Motivational Alarm allows users to wake up to motivating video
-                alarms that play when the alarm triggers — helping build energy,
-                focus, and consistency from the moment the day begins.
-                <br /><br />
-                Designed to be reliable, simple, and effective, the app focuses on
-                doing one thing well: helping users wake up on time and ready to
-                take on the day.
-            </p>
-            <p>
-                More applications and tools are currently in development.
-            </p>
-        </section>
-
-        <section>
-            <h2>Contact & Legal</h2>
-            <p>
-                This website is used for app verification, legal disclosures,
-                and platform compliance.
-            </p>
-            <p>
-                For support or inquiries:<br />
-                coder.7g@gmail.com
-            </p>
-        </section>
+            </section>
+        </main>
 
         <footer>
             © <span id="year"></span> Code7G. All rights reserved.
@@ -311,8 +648,53 @@
     </div>
 
     <script>
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+        (function () {
+            var root = document.documentElement;
+
+            /* --- Year --- */
+            document.getElementById("year").textContent = new Date().getFullYear();
+
+            /* --- Theme toggle --- */
+            var toggle = document.getElementById("themeToggle");
+
+            function currentTheme() {
+                var forced = root.getAttribute("data-theme");
+                if (forced) return forced;
+                return window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light";
+            }
+
+            toggle.addEventListener("click", function () {
+                var next = currentTheme() === "dark" ? "light" : "dark";
+                root.setAttribute("data-theme", next);
+                try {
+                    localStorage.setItem("c7g-theme", next);
+                } catch (e) { /* storage blocked — theme still applies for this visit */ }
+            });
+
+            /* --- Reveal on scroll --- */
+            var items = document.querySelectorAll(".reveal");
+
+            if (!("IntersectionObserver" in window)) {
+                items.forEach(function (el) { el.classList.add("is-visible"); });
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+
+            items.forEach(function (el, i) {
+                el.style.transitionDelay = Math.min(i * 70, 210) + "ms";
+                observer.observe(el);
+            });
+        })();
     </script>
 </body>
 </html>
