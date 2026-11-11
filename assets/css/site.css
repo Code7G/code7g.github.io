@@ -212,11 +212,13 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 .hero-art { display: none; }
 @media (min-width: 900px) {
     .hero-grid { grid-template-columns: 1.4fr 1fr; }
-    .hero-art { display: grid; grid-template-columns: repeat(2, 128px); gap: 22px; justify-content: center; }
-    .hero-art a { display: block; border-radius: 30px; transition: transform 0.2s ease; }
-    .hero-art a:nth-child(odd) { transform: translateY(18px); }
+    /* Three columns, middle one shifted down, so six icons read as a loose cluster, not a table. */
+    .hero-art { display: grid; grid-template-columns: repeat(3, 108px); gap: 20px; justify-content: center; }
+    .hero-art a { display: block; border-radius: 26px; transition: transform 0.2s ease; }
+    .hero-art a:nth-child(3n+2) { transform: translateY(22px); }
     .hero-art a:hover { transform: translateY(-4px); }
-    .hero-art img { width: 128px; height: 128px; border-radius: 30px; box-shadow: var(--shadow-hover), 0 0 0 1px var(--border); }
+    .hero-art a:nth-child(3n+2):hover { transform: translateY(18px); }
+    .hero-art img { width: 108px; height: 108px; border-radius: 26px; background: var(--bg-soft); box-shadow: var(--shadow-hover), 0 0 0 1px var(--border); }
 }
 .app-icon-text {
     display: grid; place-items: center; font-family: var(--mono); font-weight: 700; font-size: 1.05rem;
@@ -279,6 +281,8 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 .prose ul { padding-left: 1.2em; max-width: 72ch; }
 .prose li { margin: 0.35em 0; }
 .prose strong { color: var(--text); }
+/* Long URLs in the policies would otherwise run off a 320 px screen (body hides x overflow). */
+.prose a { overflow-wrap: anywhere; }
 
 .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
 .feature { padding: 22px 24px; border-radius: var(--radius); background: var(--bg-card); border: 1px solid var(--border); }
