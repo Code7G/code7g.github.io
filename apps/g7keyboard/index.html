@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>G7Keyboard | Code7G</title>
+    <meta name="description" content="G7Keyboard: a private Android keyboard with no internet permission, no ads and no tracking.">
+    <link rel="canonical" href="https://code7g.github.io/apps/g7keyboard/">
+    <meta property="og:title" content="G7Keyboard | Code7G">
+    <meta property="og:description" content="A private Android keyboard with no internet permission, no ads and no tracking.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://code7g.github.io/assets/img/g7keyboard/feature.png">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#080b12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/css/site.css">
+    <script>
+        (function () {
+            var r = document.documentElement; r.classList.add("js");
+            try { var t = localStorage.getItem("c7g-theme"); if (t === "light" || t === "dark") r.setAttribute("data-theme", t); } catch (e) {}
+        })();
+    </script>
+    <script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="../../" aria-label="Code7G home"><span class="brand-mark" aria-hidden="true">7G</span><span class="brand-name">Code7G</span></a>
+            <nav class="nav" aria-label="Main">
+                <a href="../" aria-current="page">Apps</a>
+                <a href="../../privacy/">Privacy</a>
+                <a href="../../#contact">Contact</a>
+            </nav>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch colour theme" title="Switch colour theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="app-hero">
+            <div class="wrap">
+                <p class="crumbs"><a href="../">Apps</a> / G7Keyboard</p>
+                <div class="app-hero-row">
+                    <img class="app-icon" src="../../assets/img/g7keyboard/icon.png" alt="" width="112" height="112">
+                    <div>
+                        <h1>G7Keyboard</h1>
+                        <p class="tagline">A private keyboard with no internet permission, no ads and no tracking.</p>
+                        <span class="status status-live">On Google Play</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.code7g.g7keyboard" rel="noopener">Get it on Google Play</a>
+                    <a class="btn" href="privacy/">Privacy policy</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-tight" aria-label="Screenshots">
+            <div class="wrap">
+                <div class="shots">
+                    <img src="../../assets/img/g7keyboard/01_private_no_internet.png" alt="Screenshot: private, with no internet access" width="540" height="960" decoding="async">
+                    <img src="../../assets/img/g7keyboard/02_compact_one_hand_landscape.png" alt="Screenshot: compact, one-hand and landscape layouts" width="540" height="960" decoding="async">
+                    <img src="../../assets/img/g7keyboard/03_emoji_text_faces.png" alt="Screenshot: emoji and text faces" width="540" height="960" loading="lazy" decoding="async">
+                    <img src="../../assets/img/g7keyboard/04_math_symbols.png" alt="Screenshot: math and symbol keyboards" width="540" height="960" loading="lazy" decoding="async">
+                    <img src="../../assets/img/g7keyboard/05_encrypted_clipboard.png" alt="Screenshot: encrypted clipboard history" width="540" height="960" loading="lazy" decoding="async">
+                    <img src="../../assets/img/g7keyboard/06_key_scramble.png" alt="Screenshot: key scramble" width="540" height="960" loading="lazy" decoding="async">
+                    <img src="../../assets/img/g7keyboard/07_pc_keys.png" alt="Screenshot: PC keys row with Esc, Tab, Ctrl, Alt and arrows" width="540" height="960" loading="lazy" decoding="async">
+                    <img src="../../assets/img/g7keyboard/08_themes.png" alt="Screenshot: themes" width="540" height="960" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap prose">
+                <h2>About</h2>
+                <p>A keyboard sees everything you type. G7Keyboard is built so that what you type stays on your phone: the app doesn't have the internet permission, so it has no way to send your keystrokes, clipboard or anything else to a server. There's no account, no ads, no analytics, no crash reporting and no third-party SDKs.</p>
+                <p>What the keyboard does save, like your clipboard history and custom key layouts, is encrypted with AES-256-GCM using a key kept in the Android Keystore. While your phone is locked, nothing can decrypt that data, including the keyboard itself. It's also left out of Android's cloud backup.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="features-heading">
+            <div class="wrap">
+                <div class="section-head"><h2 id="features-heading">Features</h2></div>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h3>Privacy</h3>
+                        <ul>
+                            <li>No internet permission, so nothing can be sent anywhere</li>
+                            <li>Encrypted clipboard history you can review and clear</li>
+                            <li>Key scramble: shuffles which character each key types, so someone watching your fingers or a screen recording can't tell what you wrote</li>
+                            <li>Nothing goes into Android's cloud backup</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>Typing</h3>
+                        <ul>
+                            <li>30 languages, each with its own layout, including Korean (Hangul), Japanese (Kana) and Chinese (Pinyin with word and phrase prediction)</li>
+                            <li>Automatic capitals at the start of a sentence</li>
+                            <li>Number pad and the right Enter key for number, phone and date fields</li>
+                            <li>An optional PC keys row with Esc, Tab, Ctrl, Alt and arrows</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>Layout</h3>
+                        <ul>
+                            <li>Compact keyboard and one-hand mode</li>
+                            <li>Landscape and tablet layouts</li>
+                            <li>Math and symbol keyboards</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>Make it yours</h3>
+                        <ul>
+                            <li>Built-in themes, or design your own with per-key colours and your own background image (kept on your device)</li>
+                            <li>Emoji picker with recents and search, text faces and stylised fonts</li>
+                            <li>Vibration and key animations you can turn on or off separately</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <dl class="facts">
+                    <div><dt>Platform</dt><dd>Android phones and tablets</dd></div>
+                    <div><dt>Price</dt><dd>One-time purchase</dd></div>
+                    <div><dt>Ads</dt><dd>None</dd></div>
+                    <div><dt>Account</dt><dd>Not needed</dd></div>
+                </dl>
+                <p class="note">Questions or support: <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a> &middot; <a href="privacy/">Privacy policy</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>&copy; <span id="year">2026</span> Code7G. All rights reserved.</span>
+            <nav aria-label="Footer">
+                <a href="../">Apps</a>
+                <a href="../../privacy/">Privacy policies</a>
+                <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

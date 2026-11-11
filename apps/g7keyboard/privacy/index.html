@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy for G7Keyboard | Code7G</title>
+    <meta name="description" content="How G7Keyboard handles your data.">
+    <link rel="canonical" href="https://code7g.github.io/apps/g7keyboard/privacy/">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#080b12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../assets/css/site.css">
+    <script>
+        (function () {
+            var r = document.documentElement; r.classList.add("js");
+            try { var t = localStorage.getItem("c7g-theme"); if (t === "light" || t === "dark") r.setAttribute("data-theme", t); } catch (e) {}
+        })();
+    </script>
+    <script src="../../../assets/js/site.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="../../../" aria-label="Code7G home"><span class="brand-mark" aria-hidden="true">7G</span><span class="brand-name">Code7G</span></a>
+            <nav class="nav" aria-label="Main">
+                <a href="../../">Apps</a>
+                <a href="../../../privacy/" aria-current="page">Privacy</a>
+                <a href="../../../#contact">Contact</a>
+            </nav>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch colour theme" title="Switch colour theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <article class="policy">
+            <div class="wrap prose">
+                <p class="crumbs"><a href="../../../privacy/">Privacy policies</a> / <a href="../">G7Keyboard</a></p>
+                <h1>Privacy Policy for G7Keyboard</h1>
+                <p class="updated">Last updated: November 11, 2026</p>
+
+                <p>G7Keyboard ("the app") is a keyboard for Android published by Code7G ("we", "us"). This policy explains what the app stores, where, and what it never does.</p>
+                <p>If you have questions, contact us at <strong><a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a></strong>.</p>
+
+                <h2>1. The short version</h2>
+                <p>The app does not have Android's internet permission, so it cannot connect to any server. It does not send what you type, your clipboard or anything else to us or to anyone else. It has no accounts, no ads, no analytics, no crash reporting and no third-party tracking or advertising SDKs. We collect no data about you.</p>
+
+                <h2>2. What the app stores on your device</h2>
+                <p>Everything below stays on your device, inside the app's own storage:</p>
+                <ul>
+                    <li><strong>Clipboard history:</strong> text you copy while the keyboard is in use, so you can paste it again later. It is encrypted by default (see section 3). You can clear it at any time, limit how much is kept, or turn its encryption off in Settings (the app asks you to confirm).</li>
+                    <li><strong>Recent emojis:</strong> the emojis you used recently, encrypted by default, with the same option to turn encryption off.</li>
+                    <li><strong>Custom key layouts:</strong> encrypted.</li>
+                    <li><strong>Settings and themes:</strong> your chosen language, theme, layout options and similar preferences, and a background image if you pick one for a custom theme.</li>
+                </ul>
+                <p>The app does not keep a typing history and does not learn words from what you type, except through Super Logging (section 4), which is off unless you turn it on.</p>
+                <p>The app opts out of Android's automatic backup, so this data is not copied to cloud backups. If you uninstall the app or clear its data, all of it is permanently deleted. We cannot restore it, because we never had a copy.</p>
+
+                <h2>3. Encryption</h2>
+                <p>Encrypted data is protected with AES-256-GCM, using a key created inside the Android Keystore on your device. The key never leaves the device's secure hardware, and it can only be used while your device is unlocked: while it is locked, the encrypted data cannot be decrypted by anything, including the keyboard itself. If your device has no secure screen lock, the app cannot create this kind of key and stores the data unencrypted on your device instead.</p>
+
+                <h2>4. Super Logging (off by default)</h2>
+                <p>Super Logging is a diagnostic option in Settings, under Advanced Mode. It is off unless you turn it on. When it is on, the app records, for each text field you type in, which app the field belonged to, the kind of field, and the text it contained when you left it. This log is encrypted with a password the app generates, which only you can view in the keyboard's Quick Settings. The log is stored only on your device. It leaves the device only if you share the file yourself with the Share button, and it stays encrypted when shared.</p>
+
+                <h2>5. Permissions the app uses</h2>
+                <ul>
+                    <li><strong>Input method</strong> (BIND_INPUT_METHOD): lets Android use the app as a keyboard once you enable it in your phone's settings.</li>
+                    <li><strong>Vibration</strong>: optional haptic feedback when you press keys.</li>
+                </ul>
+                <p>The app does not request internet, network, location, camera, microphone, contacts, storage or notification permissions.</p>
+
+                <h2>6. Google Play</h2>
+                <p>The app is distributed through Google Play. Google Play handles your purchase, downloads and updates under Google's own privacy policy (<a href="https://policies.google.com/privacy" rel="noopener">https://policies.google.com/privacy</a>). We receive only the usual aggregated sales and install statistics that Google Play shows to developers, and nothing about what you type.</p>
+
+                <h2>7. Children's privacy</h2>
+                <p>The app collects no personal information from anyone, including children.</p>
+
+                <h2>8. Changes to this policy</h2>
+                <p>We may update this policy when the app changes. The date at the top shows the latest version.</p>
+
+                <h2>9. Contact</h2>
+                <p>Code7G: <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a></p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>&copy; <span id="year">2026</span> Code7G. All rights reserved.</span>
+            <nav aria-label="Footer">
+                <a href="../../">Apps</a>
+                <a href="../../../privacy/">Privacy policies</a>
+                <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
