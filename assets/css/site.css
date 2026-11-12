@@ -3,20 +3,28 @@
 
 :root {
     color-scheme: light;
-    --grad-start: #1a4fff;
-    --grad-end: #7a2cff;
+    /* Brand colours, purple to light blue as in the Code7G logo. The light blue is too pale to carry
+       white text or to sit as text on the light background, so it is only used where nothing has to be
+       read on it (logo mark, glows, borders, focus halo). Fills with white text and gradient text use
+       --grad-start/--grad-end, where the blue end is a deeper azure that keeps WCAG AA contrast. */
+    --logo-purple: #7a2cff;
+    --logo-blue: #4cc9f0;
+    --grad-start: #7a2cff; /* white text 5.8:1 */
+    --grad-end: #1a6fd6;   /* white text 4.9:1 */
+    --text-grad-start: #7a2cff; /* on --bg 5.4:1 */
+    --text-grad-end: #1a6fd6;   /* on --bg 4.5:1 */
     --bg: #f5f6fa;
     --bg-card: #ffffff;
     --bg-soft: #eceef5;
     --text: #14181f;
     --muted: #4b5565;
     --strong: #05070c;
-    --accent: #1636d9;
-    --accent-soft: rgba(22, 54, 217, 0.10);
+    --accent: #6427e0; /* purple, 6.7:1 on --bg */
+    --accent-soft: rgba(100, 39, 224, 0.10);
     --border: rgba(9, 14, 30, 0.10);
     --border-strong: rgba(9, 14, 30, 0.18);
     --glow-1: rgba(122, 44, 255, 0.14);
-    --glow-2: rgba(26, 79, 255, 0.10);
+    --glow-2: rgba(76, 201, 240, 0.16);
     --shadow: 0 1px 2px rgba(9, 14, 30, 0.04), 0 8px 24px rgba(9, 14, 30, 0.06);
     --shadow-hover: 0 2px 4px rgba(9, 14, 30, 0.05), 0 18px 40px rgba(9, 14, 30, 0.10);
     --ok: #0f7b3f;
@@ -42,12 +50,14 @@
         --text: #e6e9f2;
         --muted: #a2abc2;
         --strong: #ffffff;
-        --accent: #8ab4ff;
-        --accent-soft: rgba(138, 180, 255, 0.12);
+        --accent: #7fd4ff; /* light blue, 12:1 on --bg */
+        --accent-soft: rgba(127, 212, 255, 0.12);
+        --text-grad-start: #a07bff; /* on --bg 6.4:1 */
+        --text-grad-end: #4cc9f0;   /* on --bg 10.2:1 */
         --border: rgba(255, 255, 255, 0.09);
         --border-strong: rgba(255, 255, 255, 0.18);
         --glow-1: rgba(122, 44, 255, 0.34);
-        --glow-2: rgba(26, 79, 255, 0.24);
+        --glow-2: rgba(76, 201, 240, 0.22);
         --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
         --shadow-hover: 0 1px 2px rgba(0, 0, 0, 0.4), 0 20px 44px rgba(0, 0, 0, 0.45);
         --ok: #5fd28f;
@@ -64,12 +74,14 @@
     --text: #e6e9f2;
     --muted: #a2abc2;
     --strong: #ffffff;
-    --accent: #8ab4ff;
-    --accent-soft: rgba(138, 180, 255, 0.12);
+    --accent: #7fd4ff;
+    --accent-soft: rgba(127, 212, 255, 0.12);
+    --text-grad-start: #a07bff;
+    --text-grad-end: #4cc9f0;
     --border: rgba(255, 255, 255, 0.09);
     --border-strong: rgba(255, 255, 255, 0.18);
     --glow-1: rgba(122, 44, 255, 0.34);
-    --glow-2: rgba(26, 79, 255, 0.24);
+    --glow-2: rgba(76, 201, 240, 0.22);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow-hover: 0 1px 2px rgba(0, 0, 0, 0.4), 0 20px 44px rgba(0, 0, 0, 0.45);
     --ok: #5fd28f;
@@ -134,7 +146,7 @@ p { max-width: 68ch; text-wrap: pretty; }
 .brand:hover { text-decoration: none; }
 .brand-mark {
     display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+    background: linear-gradient(135deg, var(--logo-purple), var(--logo-blue));
     color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: -0.04em;
 }
 .nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
@@ -169,10 +181,15 @@ html:not(.js) .theme-toggle { display: none; }
     background: linear-gradient(135deg, var(--grad-start), var(--grad-end)); color: #fff; border-radius: 999px;
 }
 .hero h1 { font-size: clamp(2.6rem, 8vw, 4.75rem); line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 22px; }
+/* The gradient is twice the text's width and runs purple, blue, purple, so sliding it slowly
+   gives a soft shimmer that loops without a jump. */
 .hero h1 .grad {
-    background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+    background: linear-gradient(110deg, var(--text-grad-start), var(--text-grad-end) 50%, var(--text-grad-start));
+    background-size: 200% 100%;
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    animation: shimmer 9s ease-in-out infinite alternate;
 }
+@keyframes shimmer { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
 .lead { font-size: clamp(1.08rem, 2.3vw, 1.28rem); color: var(--muted); max-width: 52ch; margin: 0; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 
@@ -181,9 +198,10 @@ html:not(.js) .theme-toggle { display: none; }
     display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px;
     font-weight: 600; font-size: 0.97rem; border: 1px solid var(--border-strong); color: var(--strong); background: var(--bg-card);
 }
-.btn:hover { text-decoration: none; border-color: var(--accent); }
+.btn { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease; }
+.btn:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-1px); }
 .btn-primary { background: linear-gradient(135deg, var(--grad-start), var(--grad-end)); color: #fff; border-color: transparent; }
-.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 24px rgba(122, 44, 255, 0.22), 0 4px 14px rgba(76, 201, 240, 0.22); }
 .btn svg { width: 18px; height: 18px; }
 
 /* ---------- Sections ---------- */
@@ -203,7 +221,15 @@ html:not(.js) .theme-toggle { display: none; }
     box-shadow: var(--shadow); color: inherit;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--border-strong); }
+/* On hover the border turns into the logo gradient: the card colour fills the padding box and the
+   gradient shows only through the 1px transparent border. */
+a.card:hover {
+    text-decoration: none; transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: transparent;
+    background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                linear-gradient(135deg, var(--logo-purple), var(--logo-blue)) border-box;
+}
+.card .app-icon { transition: transform 0.25s ease; }
+a.card:hover .app-icon { transform: scale(1.06) rotate(-2deg); }
 .card-top { display: flex; align-items: center; gap: 14px; }
 .app-icon { width: 60px; height: 60px; border-radius: 15px; flex: none; background: var(--bg-soft); box-shadow: 0 0 0 1px var(--border); }
 
@@ -219,6 +245,13 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
     .hero-art a:hover { transform: translateY(-4px); }
     .hero-art a:nth-child(3n+2):hover { transform: translateY(18px); }
     .hero-art img { width: 108px; height: 108px; border-radius: 26px; background: var(--bg-soft); box-shadow: var(--shadow-hover), 0 0 0 1px var(--border); }
+    /* Gentle float on the img (the link already carries the offset transform), each icon out of step. */
+    .hero-art img { animation: float 6s ease-in-out infinite; }
+    .hero-art a:nth-child(2) img { animation-delay: -1s; }
+    .hero-art a:nth-child(3) img { animation-delay: -2s; }
+    .hero-art a:nth-child(4) img { animation-delay: -3s; }
+    .hero-art a:nth-child(5) img { animation-delay: -4s; }
+    .hero-art a:nth-child(6) img { animation-delay: -5s; }
 }
 .app-icon-text {
     display: grid; place-items: center; font-family: var(--mono); font-weight: 700; font-size: 1.05rem;
@@ -320,6 +353,15 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--strong); }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* ---------- Scroll reveal ----------
+   site.js adds .reveal only when IntersectionObserver exists and reduced motion is off, so without
+   JS everything is simply visible. It removes both classes after the fade so hover transitions work
+   normally again. */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; transition-delay: var(--reveal-delay, 0ms); }
+.reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
