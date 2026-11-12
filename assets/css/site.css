@@ -3,28 +3,29 @@
 
 :root {
     color-scheme: light;
-    /* Brand colours, purple to light blue as in the Code7G logo. The light blue is too pale to carry
-       white text or to sit as text on the light background, so it is only used where nothing has to be
-       read on it (logo mark, glows, borders, focus halo). Fills with white text and gradient text use
-       --grad-start/--grad-end, where the blue end is a deeper azure that keeps WCAG AA contrast. */
-    --logo-purple: #7a2cff;
-    --logo-blue: #4cc9f0;
-    --grad-start: #7a2cff; /* white text 5.8:1 */
-    --grad-end: #1a6fd6;   /* white text 4.9:1 */
-    --text-grad-start: #7a2cff; /* on --bg 5.4:1 */
-    --text-grad-end: #1a6fd6;   /* on --bg 4.5:1 */
+    /* Brand colours, sampled from the Code7G logo (assets/img/code7g/logo-source.png): aqua at the
+       top-left to purple at the bottom-right. The aqua is too pale to carry white text or to sit as
+       text on the light background, so the two logo colours are only used where nothing has to be read
+       on them (logo mark, favicon, glows, borders, button glow). Fills with white text and gradient
+       text use deeper shades of the same two hues that keep WCAG AA contrast. */
+    --logo-aqua: #1ff2cb;
+    --logo-purple: #b260ee;
+    --grad-start: #08826b; /* white text 4.8:1 */
+    --grad-end: #a23fea;   /* white text 4.7:1 */
+    --text-grad-start: #077c66; /* on --bg 4.8:1 */
+    --text-grad-end: #9d35e9;   /* on --bg 4.7:1 */
     --bg: #f5f6fa;
     --bg-card: #ffffff;
     --bg-soft: #eceef5;
     --text: #14181f;
     --muted: #4b5565;
     --strong: #05070c;
-    --accent: #6427e0; /* purple, 6.7:1 on --bg */
-    --accent-soft: rgba(100, 39, 224, 0.10);
+    --accent: #8918dd; /* deeper logo purple, 6.0:1 on --bg */
+    --accent-soft: rgba(137, 24, 221, 0.10);
     --border: rgba(9, 14, 30, 0.10);
     --border-strong: rgba(9, 14, 30, 0.18);
-    --glow-1: rgba(122, 44, 255, 0.14);
-    --glow-2: rgba(76, 201, 240, 0.16);
+    --glow-1: rgba(178, 96, 238, 0.14);
+    --glow-2: rgba(31, 242, 203, 0.14);
     --shadow: 0 1px 2px rgba(9, 14, 30, 0.04), 0 8px 24px rgba(9, 14, 30, 0.06);
     --shadow-hover: 0 2px 4px rgba(9, 14, 30, 0.05), 0 18px 40px rgba(9, 14, 30, 0.10);
     --ok: #0f7b3f;
@@ -50,14 +51,14 @@
         --text: #e6e9f2;
         --muted: #a2abc2;
         --strong: #ffffff;
-        --accent: #7fd4ff; /* light blue, 12:1 on --bg */
-        --accent-soft: rgba(127, 212, 255, 0.12);
-        --text-grad-start: #a07bff; /* on --bg 6.4:1 */
-        --text-grad-end: #4cc9f0;   /* on --bg 10.2:1 */
+        --accent: #1ff2cb; /* logo aqua, 13.7:1 on --bg */
+        --accent-soft: rgba(31, 242, 203, 0.12);
+        --text-grad-start: #1ff2cb; /* logo aqua on --bg 13.7:1 */
+        --text-grad-end: #b260ee;   /* logo purple on --bg 5.4:1 */
         --border: rgba(255, 255, 255, 0.09);
         --border-strong: rgba(255, 255, 255, 0.18);
-        --glow-1: rgba(122, 44, 255, 0.34);
-        --glow-2: rgba(76, 201, 240, 0.22);
+        --glow-1: rgba(178, 96, 238, 0.30);
+        --glow-2: rgba(31, 242, 203, 0.16);
         --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
         --shadow-hover: 0 1px 2px rgba(0, 0, 0, 0.4), 0 20px 44px rgba(0, 0, 0, 0.45);
         --ok: #5fd28f;
@@ -74,14 +75,14 @@
     --text: #e6e9f2;
     --muted: #a2abc2;
     --strong: #ffffff;
-    --accent: #7fd4ff;
-    --accent-soft: rgba(127, 212, 255, 0.12);
-    --text-grad-start: #a07bff;
-    --text-grad-end: #4cc9f0;
+    --accent: #1ff2cb;
+    --accent-soft: rgba(31, 242, 203, 0.12);
+    --text-grad-start: #1ff2cb;
+    --text-grad-end: #b260ee;
     --border: rgba(255, 255, 255, 0.09);
     --border-strong: rgba(255, 255, 255, 0.18);
-    --glow-1: rgba(122, 44, 255, 0.34);
-    --glow-2: rgba(76, 201, 240, 0.22);
+    --glow-1: rgba(178, 96, 238, 0.30);
+    --glow-2: rgba(31, 242, 203, 0.16);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow-hover: 0 1px 2px rgba(0, 0, 0, 0.4), 0 20px 44px rgba(0, 0, 0, 0.45);
     --ok: #5fd28f;
@@ -146,8 +147,10 @@ p { max-width: 68ch; text-wrap: pretty; }
 .brand:hover { text-decoration: none; }
 .brand-mark {
     display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--logo-purple), var(--logo-blue));
+    background: linear-gradient(135deg, var(--logo-aqua), var(--logo-purple));
     color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: -0.04em;
+    /* White on the pale aqua end is faint at this size; a soft shadow keeps "7G" readable. */
+    text-shadow: 0 1px 2px rgba(20, 30, 60, 0.28);
 }
 .nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 .nav a { color: var(--muted); padding: 8px 12px; border-radius: 999px; font-size: 0.95rem; font-weight: 500; }
@@ -181,7 +184,7 @@ html:not(.js) .theme-toggle { display: none; }
     background: linear-gradient(135deg, var(--grad-start), var(--grad-end)); color: #fff; border-radius: 999px;
 }
 .hero h1 { font-size: clamp(2.6rem, 8vw, 4.75rem); line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 22px; }
-/* The gradient is twice the text's width and runs purple, blue, purple, so sliding it slowly
+/* The gradient is twice the text's width and runs aqua, purple, aqua, so sliding it slowly
    gives a soft shimmer that loops without a jump. */
 .hero h1 .grad {
     background: linear-gradient(110deg, var(--text-grad-start), var(--text-grad-end) 50%, var(--text-grad-start));
@@ -198,10 +201,11 @@ html:not(.js) .theme-toggle { display: none; }
     display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px;
     font-weight: 600; font-size: 0.97rem; border: 1px solid var(--border-strong); color: var(--strong); background: var(--bg-card);
 }
-.btn { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease; }
+.btn { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
 .btn:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-1px); }
 .btn-primary { background: linear-gradient(135deg, var(--grad-start), var(--grad-end)); color: #fff; border-color: transparent; }
-.btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 24px rgba(122, 44, 255, 0.22), 0 4px 14px rgba(76, 201, 240, 0.22); }
+/* No brightness filter on hover: it would lift the fill and push white-text contrast below AA. */
+.btn-primary:hover { box-shadow: 0 8px 24px rgba(178, 96, 238, 0.24), 0 4px 14px rgba(31, 242, 203, 0.22); }
 .btn svg { width: 18px; height: 18px; }
 
 /* ---------- Sections ---------- */
@@ -226,7 +230,7 @@ html:not(.js) .theme-toggle { display: none; }
 a.card:hover {
     text-decoration: none; transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: transparent;
     background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-                linear-gradient(135deg, var(--logo-purple), var(--logo-blue)) border-box;
+                linear-gradient(135deg, var(--logo-aqua), var(--logo-purple)) border-box;
 }
 .card .app-icon { transition: transform 0.25s ease; }
 a.card:hover .app-icon { transform: scale(1.06) rotate(-2deg); }
