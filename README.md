@@ -11,7 +11,10 @@ The Code7G website, served by GitHub Pages from `main`. Plain HTML and one CSS f
 - `privacy/index.html`: list of all privacy policies
 - `404.html`: shown for any missing page (its links are absolute because it can be served at any depth)
 - `assets/css/site.css`, `assets/js/site.js`, `assets/favicon.svg`: shared by every page
+- `assets/img/code7g/`: the Code7G logo. `logo-source.png` is the original (460 px, the GitHub avatar); `apple-touch-icon.png` (180 px) is made from it and linked from every page. The favicon and the header mark are a "7G" tile in the logo's gradient, because the full "code7G" text can't be read at 16 to 30 px.
 - `assets/img/<app>/`: `icon.webp` (256 px), store screenshots (540 x 960 WebP) and `feature.webp`. G7Keyboard's are PNG at the same sizes (made without an image library, see below); converting them to WebP later is fine, just update the links.
+- Colours: sampled from the logo, aqua `#1ff2cb` (top-left) to purple `#b260ee` (bottom-right). These are `--logo-*` in `site.css` and the stops in `favicon.svg`, and are used only where nothing has to be read on them (logo mark, favicon, glows, card hover border, button glow). White text on a gradient uses `--grad-*` (`#08826b` to `#a23fea`), gradient text on the light background uses `--text-grad-*` (`#077c66` to `#9d35e9`) and light-mode links use `#8918dd`: deeper shades of the same two hues that pass WCAG AA. In dark mode the headline gradient and links use the logo colours themselves.
+- Animations: scroll reveal (in `site.js`), hero headline shimmer, hero icon float, card and button hover. All of them are off when the visitor's system asks for reduced motion.
 - `tools/check_links.py`: offline check of every link, image and anchor (see below)
 - `PUBLISH-NOTES.md`: the public URL of each privacy policy, for Play Console
 
