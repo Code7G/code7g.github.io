@@ -12,6 +12,8 @@ The Code7G website, served by GitHub Pages from `main`. Plain HTML and one CSS f
 - `404.html`: shown for any missing page (its links are absolute because it can be served at any depth)
 - `assets/css/site.css`, `assets/js/site.js`, `assets/favicon.svg`: shared by every page
 - `assets/img/<app>/`: `icon.webp` (256 px), store screenshots (540 x 960 WebP) and `feature.webp`. G7Keyboard's are PNG at the same sizes (made without an image library, see below); converting them to WebP later is fine, just update the links.
+- Colours: the logo's purple `#7a2cff` to light blue `#4cc9f0` (`--logo-*` in `site.css`, also in `favicon.svg`). Anything with text on or in a gradient uses `--grad-*`/`--text-grad-*`, whose blue end is darker where needed for WCAG AA contrast.
+- Animations: scroll reveal (in `site.js`), hero headline shimmer, hero icon float, card and button hover. All of them are off when the visitor's system asks for reduced motion.
 - `tools/check_links.py`: offline check of every link, image and anchor (see below)
 - `PUBLISH-NOTES.md`: the public URL of each privacy policy, for Play Console
 
