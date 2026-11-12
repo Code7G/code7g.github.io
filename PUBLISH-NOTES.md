@@ -13,6 +13,7 @@ Paste each one into Play Console > the app > Policy and programs > App content >
 | Square Race | https://code7g.github.io/apps/square-race/privacy/ |
 | The Brotherhood | https://code7g.github.io/apps/the-brotherhood/privacy/ |
 | The Sisterhood | https://code7g.github.io/apps/the-sisterhood/privacy/ |
+| 7GLauncher (not on Play yet) | https://code7g.github.io/apps/7glauncher/privacy/ |
 
 All privacy policies are listed at https://code7g.github.io/privacy/.
 
