@@ -16,6 +16,7 @@ Paste each one into Play Console > the app > Policy and programs > App content >
 | 7GLauncher (not on Play yet) | https://code7g.github.io/apps/7glauncher/privacy/ |
 | WakeWay (not on Play yet, new) | https://code7g.github.io/apps/wakeway/privacy/ |
 | Billhook (not on Play yet, new) | https://code7g.github.io/apps/billhook/privacy/ |
+| ReadMD (not on Play yet, new) | https://code7g.github.io/apps/readmd/privacy/ |
 
 All privacy policies are listed at https://code7g.github.io/privacy/.
 
@@ -33,6 +34,7 @@ Each app has its own terms page, effective 16 November 2026. Play Console has no
 | 7GLauncher (not on Play yet) | https://code7g.github.io/apps/7glauncher/terms/ |
 | WakeWay (not on Play yet) | https://code7g.github.io/apps/wakeway/terms/ |
 | Billhook (not on Play yet) | https://code7g.github.io/apps/billhook/terms/ |
+| ReadMD (not on Play yet) | https://code7g.github.io/apps/readmd/terms/ |
 
 ## Website field in Play Console
 
@@ -63,3 +65,9 @@ The terms were written from each app's repo, not by a lawyer. Read each one once
 - **WakeWay (new privacy policy and terms):** written from the app's code. The app has no Firebase (removed), so the policy says there is no analytics or crash reporting. Its in-app "Privacy & Data Usage" text still says it uses Firebase, and needs fixing in the app before release. The ad unit ids are still Google's test ids. No support email was found in the repo; the pages use coder.7g@gmail.com. The app page has the icon (drawn from the app's vector icon) but no screenshots, because the repo has no store listing yet.
 - **Billhook (new privacy policy and terms):** the website policy matches the policy text shipped in the app (dated 9 November) and adds the permission list and contact. The in-app text says the contact is "the developer email address shown on Billhook's Google Play listing"; make that coder.7g@gmail.com in Play Console, or change the pages. The name Billhook is still a working name.
 - WakeWay and Billhook show as "Coming soon". When they go live on Play, change their status and add the Google Play button, as for the other apps.
+
+## Points to check for ReadMD (17 November 2026)
+
+- **Privacy policy:** the text of the app's `assets/privacy-policy/privacy-policy.md` (17 November 2026), unchanged. It promises three Firebase console settings: data retention 2 months, Google signals off, data sharing settings off. Set them in the Firebase project before this page goes live and before the app ships with analytics.
+- **Terms:** from ReadMD's `docs/website-drafts.md`, effective 17 November 2026. If the pages go live on a later day, change the effective date. Liability is capped at 50 euros (the app is free), governing law is Slovenia like the others.
+- **App page:** "Coming soon", no store buttons. Screenshots are the v2 phone set, cut to 9:16 from the bottom (the originals are 1:2) so the web layout doesn't crop the top bar. When it goes live on Play or the Microsoft Store, change the status and add the store button.
