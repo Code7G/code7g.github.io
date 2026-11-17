@@ -17,6 +17,7 @@ Paste each one into Play Console > the app > Policy and programs > App content >
 | WakeWay (not on Play yet, new) | https://code7g.github.io/apps/wakeway/privacy/ |
 | Billhook (not on Play yet, new) | https://code7g.github.io/apps/billhook/privacy/ |
 | ReadMD (not on Play yet, new) | https://code7g.github.io/apps/readmd/privacy/ |
+| ShareWave (not on Play yet, new) | https://code7g.github.io/apps/sharewave/privacy/ |
 
 All privacy policies are listed at https://code7g.github.io/privacy/.
 
@@ -35,6 +36,7 @@ Each app has its own terms page, effective 16 November 2026. Play Console has no
 | WakeWay (not on Play yet) | https://code7g.github.io/apps/wakeway/terms/ |
 | Billhook (not on Play yet) | https://code7g.github.io/apps/billhook/terms/ |
 | ReadMD (not on Play yet) | https://code7g.github.io/apps/readmd/terms/ |
+| ShareWave (not on Play yet) | https://code7g.github.io/apps/sharewave/terms/ |
 
 ## Website field in Play Console
 
@@ -71,3 +73,9 @@ The terms were written from each app's repo, not by a lawyer. Read each one once
 - **Privacy policy:** the text of the app's `assets/privacy-policy/privacy-policy.md` (17 November 2026), unchanged. It promises three Firebase console settings: data retention 2 months, Google signals off, data sharing settings off. Set them in the Firebase project before this page goes live and before the app ships with analytics.
 - **Terms:** from ReadMD's `docs/website-drafts.md`, effective 17 November 2026. If the pages go live on a later day, change the effective date. Liability is capped at 50 euros (the app is free), governing law is Slovenia like the others.
 - **App page:** "Coming soon", no store buttons. Screenshots are the v2 phone set, cut to 9:16 from the bottom (the originals are 1:2) so the web layout doesn't crop the top bar. When it goes live on Play or the Microsoft Store, change the status and add the store button.
+
+## Points to check for ShareWave (17 November 2026)
+
+- **Privacy policy:** based on the app's `assets/privacy-policy/privacy-policy.md` (15 October 2026), checked against the current code (version 1.0.1) and brought up to date. It names the local-network discovery (mDNS) and what the pairing QR code contains, because a privacy policy has to; it leaves out the encryption details (no TLS versions), since the design stays private for now. It covers the Android app only and says the policy will be updated before the Windows app ships. Update the app's own `privacy-policy.md` to match this page.
+- **Terms:** new, effective 17 November 2026, same structure and Slovenian law as the others. The app is free, so liability is capped at 50 euros.
+- **App page:** "Coming soon", no store button. It says a Windows app is planned, though the Play listing draft leaves Windows out until it ships. Screenshots are the v1 phone set (1080 x 1920, resized to 540 x 960). They show peers named "Desktop PC" and "Work laptop", `04_background` still has the old template icon, and `05_pairing` shows a full pairing link from an emulator. Replace them when the store screenshots are re-captured.
