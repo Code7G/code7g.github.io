@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy for ShareWave | Code7G</title>
+    <meta name="description" content="How ShareWave handles your data.">
+    <link rel="canonical" href="https://code7g.github.io/apps/sharewave/privacy/">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#080b12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/img/code7g/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../../assets/css/site.css">
+    <script>
+        (function () {
+            var r = document.documentElement; r.classList.add("js");
+            try { var t = localStorage.getItem("c7g-theme"); if (t === "light" || t === "dark") r.setAttribute("data-theme", t); } catch (e) {}
+        })();
+    </script>
+    <script src="../../../assets/js/site.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="../../../" aria-label="Code7G home"><span class="brand-mark" aria-hidden="true">7G</span><span class="brand-name">Code7G</span></a>
+            <nav class="nav" aria-label="Main">
+                <a href="../../../apps/">Apps</a>
+                <a href="../../../privacy/" aria-current="page">Privacy</a>
+                <a href="../../../#contact">Contact</a>
+            </nav>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch colour theme" title="Switch colour theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <article class="policy">
+            <div class="wrap prose">
+                <p class="crumbs"><a href="../../../privacy/">Privacy policies</a> / <a href="../">ShareWave</a></p>
+                <h1>Privacy Policy for ShareWave</h1>
+                <p class="updated">Last updated: November 17, 2026</p>
+
+                <p>ShareWave is an Android app (package <code>com.code7g.sharewave</code>) that sends clipboard text and files between devices you have paired yourself, over your local network. It is made by Code7G, a solo developer (contact below). This policy covers the Android app. A Windows app is planned; this policy will be updated before it is released.</p>
+
+                <h2>Short version</h2>
+                <ul>
+                    <li>ShareWave sends your text and files only directly to devices you paired, on your local network. Nothing goes through a server.</li>
+                    <li>The developer runs no server and does not collect, receive, store, sell or share any of your data.</li>
+                    <li>No account, no ads, no analytics, no crash reporting, no advertising ID.</li>
+                </ul>
+
+                <h2>What ShareWave stores on your device</h2>
+                <ul>
+                    <li><strong>A device key.</strong> It lets your other devices recognise this device. It is kept in Android's secure key storage on this device and never leaves it.</li>
+                    <li><strong>Your list of paired devices:</strong> each device's name, a fingerprint of its key, the network address and port it was last reached at, and when you paired it. ShareWave uses this to know which devices to trust and where to find them. It is kept in the app's private storage.</li>
+                    <li><strong>Your settings</strong>, such as whether background receiving is on. Kept in the app's private storage.</li>
+                    <li><strong>A short list of what you received</strong> since ShareWave started, so you can copy or open it again. It is kept in memory only, never saved, and is gone when ShareWave stops running (for example after a restart, or when background receiving is off and you close the app).</li>
+                    <li><strong>Files you receive.</strong> On Android 10 and later they are saved in your <code>Download/ShareWave</code> folder. On Android 8 and 9 they are saved in ShareWave's own folder on your storage.</li>
+                </ul>
+                <p>App backup to your Google account is turned off, so none of this is copied to Google's servers by Android's backup.</p>
+
+                <h2>What leaves your device, and to whom</h2>
+                <p>Data leaves your device only directly to a device you paired, when you or that device start a transfer:</p>
+                <ul>
+                    <li>the text or files you choose to send, with the files' names and sizes</li>
+                    <li>your device's name as set in Android's settings (or the device model if no name is set), so the other device can show who sent something</li>
+                    <li>the technical details needed to connect, such as the network port ShareWave uses</li>
+                </ul>
+                <p>Transfers are encrypted, and both devices check each other's identity using what they exchanged when you paired them. Other devices on the network can't read what is sent, and neither can the developer.</p>
+
+                <h2>Pairing</h2>
+                <p>To pair two devices, one shows a QR code (also shown as a link you can copy) and the other scans it. The code contains this device's name, its addresses on your local network, a fingerprint of its key and a one-time code. It works once and expires after two minutes. If you scan it with your camera app, the camera app reads it and opens ShareWave, which asks you before pairing. Show the code only to devices you want to pair.</p>
+
+                <h2>Finding your devices on the network</h2>
+                <p>While ShareWave is running, it announces on your local network that a ShareWave device is available, using the standard mDNS method that printers and smart speakers also use. The announcement contains a short identifier derived from the device key and a network port. It contains no name and no personal information. Other devices on the same network can see the announcement, but only devices you paired can connect.</p>
+
+                <h2>Clipboard</h2>
+                <p>ShareWave reads your clipboard only when you tap Send clipboard, and Android may show a notice when this happens. Clipboard content that apps mark as sensitive, such as copied passwords, is never sent. When a paired device sends you text, ShareWave puts it on your clipboard. ShareWave doesn't keep a clipboard history on disk.</p>
+
+                <h2>Notifications</h2>
+                <p>When something arrives, the notification shows the sending device's name and, for files, the file name. It doesn't show the text you received. While background receiving is on, an ongoing notification shows that ShareWave is ready to receive.</p>
+
+                <h2>Permissions</h2>
+                <ul>
+                    <li><strong>Internet, network state and local network access:</strong> to connect to your paired devices on your local network. On Android 17 and later, Android asks you for local network access.</li>
+                    <li><strong>Wi-Fi multicast:</strong> to keep finding your devices on the network while the screen is off.</li>
+                    <li><strong>Foreground service (connected device):</strong> to keep receiving from your devices while the app is closed. A notification is shown the whole time. Background receiving is on by default; you can turn it off in the app or with the notification's "Turn off" button.</li>
+                    <li><strong>Notifications:</strong> to tell you when something arrives, and to show that background receiving is on.</li>
+                    <li><strong>Run at startup:</strong> to start background receiving again after your phone restarts or ShareWave is updated, if it is on.</li>
+                    <li><strong>Ignore battery optimisations (optional):</strong> asks Android not to pause ShareWave while your phone is idle, so transfers still arrive. Android asks you first, and you can decline.</li>
+                </ul>
+                <p>ShareWave doesn't ask for your location, contacts, camera, microphone or access to all your files.</p>
+
+                <h2>Third parties</h2>
+                <p>ShareWave contains no third-party analytics, advertising, crash-reporting or tracking software, and it sends no data to any third party. The libraries it uses (such as Android Jetpack and a QR code generator) run only on your device. Google Play, where you download the app, has its own privacy policy.</p>
+
+                <h2>Keeping and deleting your data</h2>
+                <p>All data stays on your devices, so you control it:</p>
+                <ul>
+                    <li>Tap Forget on a device in ShareWave to remove it from your paired list.</li>
+                    <li>The list of received items disappears when ShareWave stops running.</li>
+                    <li>Received files stay where they were saved until you delete them. On Android 8 and 9 they are also removed when you uninstall ShareWave.</li>
+                    <li>Clearing ShareWave's storage in Android's settings, or uninstalling it, removes its key, paired devices and settings.</li>
+                </ul>
+                <p>The developer holds no data about you, so there is nothing to request, export or delete from the developer.</p>
+
+                <h2>Children</h2>
+                <p>ShareWave is a general tool and is not made for children. It collects no personal information from anyone.</p>
+
+                <h2>Security</h2>
+                <p>Devices must be paired before they can exchange anything, and transfers are encrypted. Received file names are checked so files can only be saved in the intended folder. No way of sending or storing data is perfectly secure, but ShareWave is built so your data never passes through anyone else's servers.</p>
+
+                <h2>Your rights</h2>
+                <p>In the EU and UK you have the right to access, correct or delete personal data about you. The developer holds none, so the simplest way to remove everything is to use Forget, clear the app's storage or uninstall it. You can also write to us, and you can complain to your data protection authority (in Slovenia: the Information Commissioner, <a href="https://www.ip-rs.si" rel="noopener">https://www.ip-rs.si</a>).</p>
+
+                <h2>Changes</h2>
+                <p>If this policy changes, the new version will be on this page with a new date. If the app starts collecting anything, this policy will say so before that version is released.</p>
+
+                <h2>Contact</h2>
+                <p>Code7G, <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a></p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>&copy; <span id="year">2026</span> Code7G. All rights reserved.</span>
+            <nav aria-label="Footer">
+                <a href="../../../apps/">Apps</a>
+                <a href="../../../privacy/">Privacy policies</a>
+                <a href="../../../terms/">Terms of service</a>
+                <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

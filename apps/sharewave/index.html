@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShareWave | Code7G</title>
+    <meta name="description" content="ShareWave: send clipboard text and files between your own devices on the same network. Paired, encrypted, no account, no cloud.">
+    <link rel="canonical" href="https://code7g.github.io/apps/sharewave/">
+    <meta property="og:title" content="ShareWave | Code7G">
+    <meta property="og:description" content="Send clipboard text and files between your own devices on the same network.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://code7g.github.io/assets/img/sharewave/feature.webp">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#080b12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../assets/img/code7g/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../assets/css/site.css">
+    <script>
+        (function () {
+            var r = document.documentElement; r.classList.add("js");
+            try { var t = localStorage.getItem("c7g-theme"); if (t === "light" || t === "dark") r.setAttribute("data-theme", t); } catch (e) {}
+        })();
+    </script>
+    <script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="../../" aria-label="Code7G home"><span class="brand-mark" aria-hidden="true">7G</span><span class="brand-name">Code7G</span></a>
+            <nav class="nav" aria-label="Main">
+                <a href="../../apps/" aria-current="page">Apps</a>
+                <a href="../../privacy/">Privacy</a>
+                <a href="../../#contact">Contact</a>
+            </nav>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch colour theme" title="Switch colour theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="app-hero">
+            <div class="wrap">
+                <p class="crumbs"><a href="../">Apps</a> / ShareWave</p>
+                <div class="app-hero-row">
+                    <img class="app-icon" src="../../assets/img/sharewave/icon.webp" alt="" width="112" height="112">
+                    <div>
+                        <h1>ShareWave</h1>
+                        <p class="tagline">Send clipboard text and files between your own devices on the same network.</p>
+                        <span class="status status-soon">Coming soon</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="btn" href="privacy/">Privacy policy</a>
+                    <a class="btn" href="terms/">Terms of service</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-tight" aria-label="Screenshots">
+            <div class="wrap">
+                <div class="shots">
+                    <img src="../../assets/img/sharewave/01_home.webp" alt="Screenshot: the home screen with two paired devices, Send clipboard and Send files buttons, and a list of received text and files" width="540" height="960" decoding="async">
+                    <img src="../../assets/img/sharewave/02_share.webp" alt="Screenshot: choosing which paired device to send a shared file to" width="540" height="960" decoding="async">
+                    <img src="../../assets/img/sharewave/03_big_files.webp" alt="Screenshot: a file being sent to a paired device, with a progress bar" width="540" height="960" loading="lazy" decoding="async">
+                    <img src="../../assets/img/sharewave/04_background.webp" alt="Screenshot: notifications for received text and files, and the notification that shows ShareWave is ready to receive" width="540" height="960" loading="lazy" decoding="async">
+                    <img src="../../assets/img/sharewave/05_pairing.webp" alt="Screenshot: pairing a device with a QR code that works once and expires after two minutes" width="540" height="960" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap prose">
+                <h2>About</h2>
+                <p>ShareWave sends text and files between your own devices when they are on the same network, for example your home Wi-Fi. Copy something on one device, tap Send clipboard, and it is on the other device's clipboard. Files go the same way and are saved in Downloads/ShareWave.</p>
+                <p>You pair your devices once by scanning a QR code. After that, only devices you paired can send to each other, and everything they send is encrypted. Nothing goes through a server or a cloud service, and there is no account.</p>
+                <p>The Android app is first. A Windows app is planned, so you can send between your phone and your PC.</p>
+                <p>It is free, with no ads and no in-app purchases. It isn't on Google Play yet.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="features-heading">
+            <div class="wrap">
+                <div class="section-head"><h2 id="features-heading">Features</h2></div>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h3>Sending</h3>
+                        <ul>
+                            <li>Send your clipboard to another device with one tap</li>
+                            <li>Share text, photos, documents and other files from any app through the Android share menu</li>
+                            <li>Send several files at once, including large ones</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>Receiving</h3>
+                        <ul>
+                            <li>Received text goes straight to your clipboard</li>
+                            <li>Received files are saved in Downloads/ShareWave</li>
+                            <li>Receives in the background too, with a notification that shows it is on. You can turn it off at any time.</li>
+                            <li>A short list of what arrived, to copy or open it again</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>Privacy</h3>
+                        <ul>
+                            <li>Only devices you paired can connect</li>
+                            <li>Transfers are encrypted between your devices</li>
+                            <li>No server, no account, no ads, no analytics</li>
+                            <li>Clipboard content marked as sensitive, such as copied passwords, is never sent</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>What it doesn't do</h3>
+                        <ul>
+                            <li>It doesn't send over the internet: both devices have to be on the same network</li>
+                            <li>It doesn't keep a history of your clipboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <dl class="facts">
+                    <div><dt>Platform</dt><dd>Android 8.0 or later. Windows planned.</dd></div>
+                    <div><dt>Price</dt><dd>Free</dd></div>
+                    <div><dt>Ads</dt><dd>No</dd></div>
+                    <div><dt>Account</dt><dd>Not needed</dd></div>
+                </dl>
+                <p class="note">Questions or support: <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a> &middot; <a href="privacy/">Privacy policy</a> &middot; <a href="terms/">Terms of service</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>&copy; <span id="year">2026</span> Code7G. All rights reserved.</span>
+            <nav aria-label="Footer">
+                <a href="../../apps/">Apps</a>
+                <a href="../../privacy/">Privacy policies</a>
+                <a href="../../terms/">Terms of service</a>
+                <a href="mailto:coder.7g@gmail.com">coder.7g@gmail.com</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
