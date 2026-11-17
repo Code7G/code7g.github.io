@@ -41,4 +41,4 @@ From this folder: `python -m http.server 8000`, then open http://localhost:8000/
 
 ## Updating images
 
-Screenshots were last refreshed on 2026-11-17 (Motivational Alarm v7, G7Keyboard v6, Square Race v9, Billhook v3; The Brotherhood v2 and The Sisterhood v3 were already current). They were resized with Pillow (Lanczos) and saved as WebP at quality 82. 7GLauncher and WakeWay have no screenshots here yet. Any tool that writes 540 x 960 images works the same.
+Screenshots were last refreshed on 2026-11-17 (Motivational Alarm v7, G7Keyboard v6, Square Race v9, Billhook v3; ReadMD v2, cut to 9:16 from the bottom because its originals are 1:2; The Brotherhood v2 and The Sisterhood v3 were already current). They were resized with Pillow (Lanczos) and saved as WebP at quality 82. 7GLauncher and WakeWay have no screenshots here yet. Any tool that writes 540 x 960 images works the same.
