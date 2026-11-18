@@ -52,7 +52,7 @@ Optional: each app's store listing contact details can point to its page here, f
 - G7Keyboard's policy is new. It was written from the app's manifest (only the input method and vibration permissions, no internet, backup turned off) and its docs (encryption, clipboard history, Super Logging). Read it once before linking it in Play Console.
 - G7Keyboard's page says "One-time purchase", taken from its store listing draft. Change it if the app's price model is different.
 - Square Race's policy is the August 30, 2026 text with the contact address filled in. The app links Firestore, but no app code uses it, so the policy doesn't mention it. If Square Race starts using Firestore or another service, update the policy.
-- Motivational Alarm's page and policy still give its own support address, contact.motivationalalarm@gmail.com. Every other page uses coder.7g@gmail.com.
+- Motivational Alarm's app page and terms still give its own support address, contact.motivationalalarm@gmail.com. Its privacy policy uses coder.7g@gmail.com since 18 November 2026, like every other page.
 
 ## Points to check for the terms and the new pages (16 November 2026)
 
