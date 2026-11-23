@@ -308,6 +308,9 @@ a.card:hover .app-icon { transform: scale(1.06) rotate(-2deg); }
     scroll-snap-align: start; width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
     border-radius: 16px; border: 1px solid var(--border); background: var(--bg-soft);
 }
+/* Landscape screenshots (AGTA's terminal captures, 1200 x 600). */
+.shots-wide { grid-auto-columns: clamp(260px, 84vw, 600px); }
+.shots-wide img { aspect-ratio: 2 / 1; }
 .shots::-webkit-scrollbar { height: 8px; }
 .shots::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; }
 
